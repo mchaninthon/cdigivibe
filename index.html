@@ -78,6 +78,7 @@
         .animate-marquee-right {
             animation: marquee-right 45s linear infinite;
         }
+    </style>
 </head>
 <body class="relative overflow-x-hidden">
 
@@ -100,6 +101,7 @@
                 <a href="#services" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/70 hover:text-cobalt transition-colors">Services</a>
                 <a href="#results" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/70 hover:text-cobalt transition-colors">Success</a>
                 <a href="#partners" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/70 hover:text-cobalt transition-colors">Partners</a>
+                <a href="#team" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/70 hover:text-cobalt transition-colors">Team</a>
                 <a href="#contact" class="px-6 py-2.5 rounded-full bg-ink text-limestone hover:bg-cobalt hover:text-white font-open font-semibold text-xs uppercase tracking-widest transition-all duration-300">Contact</a>
             </div>
 
@@ -117,11 +119,12 @@
             <a href="#services" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/80">Services</a>
             <a href="#results" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/80">Success</a>
             <a href="#partners" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/80">Partners</a>
+            <a href="#team" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/80">Team</a>
             <a href="#contact" class="block text-center py-3.5 bg-cobalt text-white rounded-xl font-open font-semibold text-xs uppercase tracking-widest">Contact Us</a>
         </div>
     </nav>
 
-    <!-- SECTION: HERO (Symmetrical & Balanced Sizing) -->
+    <!-- SECTION: HERO -->
     <section id="hero" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 w-full text-center relative z-10 py-16">
             <div class="flex items-center justify-center space-x-3 mb-6">
@@ -289,13 +292,12 @@
         </div>
     </section>
 
-    <!-- SECTION: SUCCESS METRICS (Ink Background - Single Accent: Cyan) -->
+    <!-- SECTION: SUCCESS METRICS -->
     <section id="results" class="py-24 md:py-32 border-t border-ink/5 bg-ink text-limestone relative z-10 reveal-section">
         <div class="max-w-7xl mx-auto px-6">
             
             <div class="grid grid-cols-12 gap-y-12 lg:gap-x-12 items-center">
                 <div class="col-span-12 lg:col-span-5">
-                    <!-- Contrast rescue: using ONLY Cyan as the sole highlight accent color in this dark section -->
                     <span class="font-open text-xs uppercase tracking-[0.3em] text-cyanAccent font-semibold block mb-4">03. Success</span>
                     <h2 class="font-nunito text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                         Successful Projects
@@ -327,187 +329,193 @@
         </div>
     </section>
 
-   <!-- SECTION: PARTNERS (Unified 150x80 Bounding Grid with Continuous Loop) -->
-<section id="partners" class="py-24 bg-limestone border-t border-ink/5 relative z-10 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 mb-12">
-        <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">04. Partnerships</span>
-        <h2 class="font-nunito text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            Successful Collaborations
-        </h2>
-    </div>
+    <!-- SECTION: PARTNERS -->
+    <section id="partners" class="py-24 bg-limestone border-t border-ink/5 relative z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-12">
+            <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">04. Partnerships</span>
+            <h2 class="font-nunito text-3xl sm:text-4xl font-bold tracking-tight text-ink">
+                Successful Collaborations
+            </h2>
+        </div>
 
-    <!-- Symmetrical vertical spacing -->
-    <div class="space-y-4 w-full relative">
-        
-        <!-- Row 1: Leftward Scrolling Marquee (12 Logos) -->
-        <div class="flex overflow-hidden w-full select-none border-t border-b border-ink/5 py-6 bg-limestone">
-            <!-- pr-16 and space-x-16 ensure the looping boundary is seamless -->
-            <div class="flex whitespace-nowrap animate-marquee-left space-x-16 items-center pr-16 flex-shrink-0">
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/arto.png" alt="Arto" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+        <!-- Symmetrical vertical spacing -->
+        <div class="space-y-4 w-full relative">
+            
+            <!-- Row 1: Leftward Scrolling Marquee (12 Logos) -->
+            <div class="flex overflow-hidden w-full select-none border-t border-b border-ink/5 py-6 bg-limestone">
+                <div class="flex whitespace-nowrap animate-marquee-left space-x-16 items-center pr-16 flex-shrink-0">
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/arto.png" alt="Arto" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/bfgoodrich.png" alt="BFGoodrich" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/bigplay.png" alt="Bigplay" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/digitalmotive.png" alt="Digital Motive" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/eightlimbs.png" alt="Eight Limbs" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/fastforwardsport.png" alt="Fast Forward Sport" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/fitmarketinglab.png" alt="Fit Marketing Lab" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/harper.png" alt="Harper" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/khaokho.png" alt="Khaokho" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/kindee.png" alt="Kindee" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/michelin.png" alt="Michelin" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/navavej.png" alt="Navavej" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
                 </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/bfgoodrich.png" alt="BFGoodrich" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/bigplay.png" alt="Bigplay" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/digitalmotive.png" alt="Digital Motive" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/eightlimbs.png" alt="Eight Limbs" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/fastforwardsport.png" alt="Fast Forward Sport" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/fitmarketinglab.png" alt="Fit Marketing Lab" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/harper.png" alt="Harper" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/khaokho.png" alt="Khaokho" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/kindee.png" alt="Kindee" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/michelin.png" alt="Michelin" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/navavej.png" alt="Navavej" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                
+                <!-- Perfect Duplicate For Infinite Loop -->
+                <div class="flex whitespace-nowrap animate-marquee-left space-x-16 items-center pr-16 flex-shrink-0" aria-hidden="true">
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/arto.png" alt="Arto" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/bfgoodrich.png" alt="BFGoodrich" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/bigplay.png" alt="Bigplay" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/digitalmotive.png" alt="Digital Motive" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/eightlimbs.png" alt="Eight Limbs" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/fastforwardsport.png" alt="Fast Forward Sport" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/fitmarketinglab.png" alt="Fit Marketing Lab" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/harper.png" alt="Harper" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/khaokho.png" alt="Khaokho" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/kindee.png" alt="Kindee" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/michelin.png" alt="Michelin" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/navavej.png" alt="Navavej" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
                 </div>
             </div>
-            
-            <!-- Perfect Duplicate For Infinite Loop -->
-            <div class="flex whitespace-nowrap animate-marquee-left space-x-16 items-center pr-16 flex-shrink-0" aria-hidden="true">
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/arto.png" alt="Arto" class="max-w-full max-h-full object-contain opacity-70" />
+
+            <!-- Row 2: Rightward Scrolling Marquee (12 Logos) -->
+            <div class="flex overflow-hidden w-full select-none border-b border-ink/5 py-6 bg-limestone">
+                <div class="flex whitespace-nowrap animate-marquee-right space-x-16 items-center pr-16 flex-shrink-0">
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/nobleflow.png" alt="Nobleflow" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/nomadearn.png" alt="Nomadearn" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/orchidwonder.png" alt="Orchid Wonder" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/parich.png" alt="Parich" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/racingmania.png" alt="Racing Mania" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/seahouse.png" alt="Seahouse" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/tcdasia.png" alt="TCD Asia" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/toyota%20alive.png" alt="Toyota Alive" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/toyotagazooracingthailand.png" alt="Toyota Gazoo Racing Thailand" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/trane.png" alt="Trane" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/yokohama.png" alt="Yokohama" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/zenithwealth.png" alt="Zenith Wealth" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
                 </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/bfgoodrich.png" alt="BFGoodrich" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/bigplay.png" alt="Bigplay" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/digitalmotive.png" alt="Digital Motive" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/eightlimbs.png" alt="Eight Limbs" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/fastforwardsport.png" alt="Fast Forward Sport" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/fitmarketinglab.png" alt="Fit Marketing Lab" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/harper.png" alt="Harper" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/khaokho.png" alt="Khaokho" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/kindee.png" alt="Kindee" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/michelin.png" alt="Michelin" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/navavej.png" alt="Navavej" class="max-w-full max-h-full object-contain opacity-70" />
+                
+                <!-- Perfect Duplicate For Infinite Loop -->
+                <div class="flex whitespace-nowrap animate-marquee-right space-x-16 items-center pr-16 flex-shrink-0" aria-hidden="true">
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/nobleflow.png" alt="Nobleflow" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/nomadearn.png" alt="Nomadearn" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/orchidwonder.png" alt="Orchid Wonder" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/parich.png" alt="Parich" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/racingmania.png" alt="Racing Mania" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/seahouse.png" alt="Seahouse" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/tcdasia.png" alt="Tcdasia" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/toyota%20alive.png" alt="Toyota Alive" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/toyotagazooracingthailand.png" alt="Toyota Gazoo Racing Thailand" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/trane.png" alt="Trane" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/yokohama.png" alt="Yokohama" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
+                    <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
+                        <img src="assets/CDV_Client%20Logo/zenithwealth.png" alt="Zenithwealth" class="max-w-full max-h-full object-contain opacity-70" />
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Row 2: Rightward Scrolling Marquee (12 Logos) -->
-        <div class="flex overflow-hidden w-full select-none border-b border-ink/5 py-6 bg-limestone">
-            <div class="flex whitespace-nowrap animate-marquee-right space-x-16 items-center pr-16 flex-shrink-0">
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/nobleflow.png" alt="Nobleflow" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/nomadearn.png" alt="Nomadearn" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/orchidwonder.png" alt="Orchid Wonder" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/parich.png" alt="Parich" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/racingmania.png" alt="Racing Mania" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/seahouse.png" alt="Seahouse" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/tcdasia.png" alt="TCD Asia" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/toyota%20alive.png" alt="Toyota Alive" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/toyotagazooracingthailand.png" alt="Toyota Gazoo Racing Thailand" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/trane.png" alt="Trane" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/yokohama.png" alt="Yokohama" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/zenithwealth.png" alt="Zenith Wealth" class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
-                </div>
+    <!-- SECTION: TEAM -->
+    <section id="team" class="py-24 md:py-32 border-t border-ink/5 bg-transparent relative z-10 reveal-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">05. Team</span>
+                <h2 class="font-nunito text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink">Our Team</h2>
             </div>
             
-            <!-- Perfect Duplicate For Infinite Loop -->
-            <div class="flex whitespace-nowrap animate-marquee-right space-x-16 items-center pr-16 flex-shrink-0" aria-hidden="true">
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/nobleflow.png" alt="Nobleflow" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/nomadearn.png" alt="Nomadearn" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/orchidwonder.png" alt="Orchid Wonder" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/parich.png" alt="Parich" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/racingmania.png" alt="Racing Mania" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/seahouse.png" alt="Seahouse" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/tcdasia.png" alt="Tcdasia" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/toyota%20alive.png" alt="Toyota Alive" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/toyotagazooracingthailand.png" alt="Toyota Gazoo Racing Thailand" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/trane.png" alt="Trane" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/yokohama.png" alt="Yokohama" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-                <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                    <img src="assets/CDV_Client%20Logo/zenithwealth.png" alt="Zenithwealth" class="max-w-full max-h-full object-contain opacity-70" />
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-    
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Team Member 1 -->
                 <div class="flex flex-col">
                     <div class="aspect-square bg-ink/5 rounded-2xl overflow-hidden mb-6 relative">
@@ -544,6 +552,8 @@
                     <p class="font-open text-xs uppercase tracking-widest text-cobalt mt-1">Event & Project Management</p>
                 </div>
             </div>
+        </div>
+    </section>
 
     <!-- SECTION: CONTACT (Typographically Balanced Sizing) -->
     <section id="contact" class="py-24 md:py-32 border-t border-ink/5 bg-transparent relative z-10 reveal-section">
