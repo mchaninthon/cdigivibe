@@ -186,10 +186,13 @@
                 We align business and performance marketing strategies, growth channels, and seamless media & event production logistics. We help ambitious SMEs stabilize internal systems to scale safely and expand their reach to support sustainable growth.
             </p>
 
+           <!-- Symmetrical Hero Buttons with Static Position Wrapper -->
             <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-ink text-white font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 text-center">
-                    Get in Touch
-                </a>
+                <div id="magnetic-wrap" class="inline-block">
+                    <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-goldAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 text-center block">
+                        Get in Touch
+                    </a>
+                </div>
                 <a href="#services" class="px-8 py-4 bg-transparent hover:bg-ink/5 text-ink border border-ink/20 font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 text-center">
                     Our Services
                 </a>
@@ -757,19 +760,22 @@
                 });
             });
 
-            // Elastic Magnetic Button (Rally Style Interaction)
+            // Elastic Magnetic Button (Stable Pointer Interaction via Wrapper)
+            const magneticWrap = document.getElementById('magnetic-wrap');
             const magneticBtn = document.getElementById('magnetic-btn');
-            if (magneticBtn) {
-                window.addEventListener('mousemove', (e) => {
-                    const rect = magneticBtn.getBoundingClientRect();
+            
+            if (magneticWrap && magneticBtn) {
+                window.addEventListener('pointermove', (e) => {
+                    // Measure the static parent container to prevent calculation loops
+                    const rect = magneticWrap.getBoundingClientRect();
                     const btnX = rect.left + rect.width / 2;
                     const btnY = rect.top + rect.height / 2;
                     const dist = Math.hypot(e.clientX - btnX, e.clientY - btnY);
 
-                    if (dist < 150) {
-                        const pullX = (e.clientX - btnX) * 0.25;
-                        const pullY = (e.clientY - btnY) * 0.25;
-                        magneticBtn.style.transform = `translate(${pullX}px, ${pullY}px) scale(1.05)`;
+                    if (dist < 120) {
+                        const pullX = (e.clientX - btnX) * 0.2;
+                        const pullY = (e.clientY - btnY) * 0.2;
+                        magneticBtn.style.transform = `translate(${pullX}px, ${pullY}px) scale(1.03)`;
                     } else {
                         magneticBtn.style.transform = 'none';
                     }
