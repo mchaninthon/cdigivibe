@@ -75,7 +75,7 @@
                         ink: '#131407',      // Supportive Dark
                         cobalt: '#2B2E8C',    // Primary Accent Blue
                         cyanAccent: '#50C9E6', // Accent Color A (Success Highlight)
-                        goldAccent: '#E6B850', // Accent Color B (Contact Hover)
+                        cyanAccent: '#E6B850', // Accent Color B (Contact Hover)
                     },
                     fontFamily: {
                         nunito: ['"Nunito Sans"', 'sans-serif'],
@@ -169,7 +169,7 @@
     </nav>
 
     <!-- SECTION: HERO -->
-    <section id="hero" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 w-full text-center relative z-10 py-16">
             <div class="flex items-center justify-center space-x-3 mb-6">
                 <span class="w-8 h-[1px] bg-cobalt"></span>
@@ -189,7 +189,7 @@
            <!-- Symmetrical Hero Buttons with Static Position Wrapper -->
             <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
                 <div id="magnetic-wrap" class="inline-block">
-                    <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-goldAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 text-center block">
+                    <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 text-center block">
                         Get in Touch
                     </a>
                 </div>
@@ -663,7 +663,7 @@
 
                         <div class="pt-4">
                             <!-- Clean primary background, transitioning into Gold Accent strictly on hover -->
-                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-cobalt hover:bg-goldAccent text-white hover:text-ink font-open font-semibold text-sm uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
+                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-sm uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
                                 Contact us
                             </button>
                         </div>
@@ -766,7 +766,13 @@
             
             if (magneticWrap && magneticBtn) {
                 window.addEventListener('pointermove', (e) => {
-                    // Measure the static parent container to prevent calculation loops
+                    // Disable magnetic visual distortion for mobile and tablet touch users
+                    if (e.pointerType !== 'mouse') {
+                        magneticBtn.style.transform = 'none';
+                        return;
+                    }
+
+                    // Measure the static parent container to prevent layout calculation loops
                     const rect = magneticWrap.getBoundingClientRect();
                     const btnX = rect.left + rect.width / 2;
                     const btnY = rect.top + rect.height / 2;
