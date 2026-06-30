@@ -634,43 +634,52 @@
                     </div>
                 </div>
 
-                <!-- Input form container -->
+                <!-- Input form container (Fully integrated with FormSubmit & Spam Protection) -->
                 <div class="col-span-12 lg:col-span-7 bg-ink text-limestone p-8 sm:p-12 rounded-2xl">
-                    <form class="space-y-8">
+                    <form action="https://formsubmit.co/connect@cdigivibe.com" method="POST" class="space-y-8">
+                        
+                        <!-- Anti-Spam Honeypot Field (Invisible to human users, silently blocks automated bots) -->
+                        <input type="text" name="_honey" style="display:none">
+                        
+                        <!-- Redirect configuration (Keeps users on your contact section after successful submission) -->
+                        <input type="hidden" name="_next" value="https://www.cdigivibe.com/#contact">
+                        
+                        <!-- Custom Email Subject Configuration -->
+                        <input type="hidden" name="_subject" value="New C DIGI VIBE Inquiry">
+
                         <div class="relative flex flex-col">
-                            <input type="text" id="name" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
-                            <label for="name" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Your Name</label>
+                            <!-- Added name="name" attribute for payload serialization -->
+                            <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
+                            <label for="name" class="absolute left-0 -top-4 text-xs text-limestone/40 font-open tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Your Name</label>
                         </div>
 
                         <div class="relative flex flex-col">
-                            <input type="email" id="email" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
-                            <label for="email" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Email Address</label>
+                            <!-- Added name="email" attribute for payload serialization -->
+                            <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
+                            <label for="email" class="absolute left-0 -top-4 text-xs text-limestone/40 font-open tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Email Address</label>
                         </div>
 
                         <div class="relative flex flex-col">
-                            <textarea id="brief" required rows="4" class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer resize-none" placeholder=" "></textarea>
-                            <label for="brief" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Tell us about your requirements</label>
+                            <!-- Added name="requirements" attribute for payload serialization -->
+                            <textarea id="brief" name="requirements" required rows="4" class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer resize-none" placeholder=" "></textarea>
+                            <label for="brief" class="absolute left-0 -top-4 text-xs text-limestone/40 font-open tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Tell us about your requirements</label>
                         </div>
 
                         <div class="pt-4">
                             <!-- PDPA Legal Consent Disclosure -->
-                        <p class="text-[11px] text-limestone/50 leading-relaxed font-open">
-                            By submitting this inquiry, you acknowledge and consent to the collection and processing of your personal data as outlined in our 
-                            <a href="privacy-policy.html" class="text-cyanAccent underline hover:text-white transition-colors">Privacy Policy</a>.
-                        </p>
+                            <p class="text-[11px] text-limestone/50 leading-relaxed font-open">
+                                By submitting this inquiry, you acknowledge and consent to the collection and processing of your personal data as outlined in our 
+                                <a href="privacy-policy.html" class="text-cyanAccent underline hover:text-white transition-colors">Privacy Policy</a>.
+                            </p>
 
-                        <div class="pt-4">
-                            <!-- Clean primary background, transitioning into Cyan Accent strictly on hover -->
-                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-sm uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
-                                Contact us
-                            </button>
-                        </div>
+                            <div class="pt-4">
+                                <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-sm uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
+                                    Contact us
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
-            </div>
-
-        </div>
     </section>
 
     <!-- FOOTER -->
