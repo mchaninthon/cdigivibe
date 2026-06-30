@@ -188,7 +188,7 @@
 
            <!-- Symmetrical Sibling CTA Buttons -->
             <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-goldAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-colors duration-300 text-center">
+                <a href="#contact" class="px-8 py-4 bg-cobalt hover:bg-goldAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-colors duration-300 text-center">
                     Get in Touch
                 </a>
                 <a href="#services" class="px-8 py-4 bg-transparent hover:bg-ink/5 text-ink border border-ink/20 font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-colors duration-300 text-center">
@@ -758,44 +758,6 @@
                 });
             });
 
-            // Stable Self-Correcting Magnetic Button Engine (Eliminates visual drift)
-            const magneticBtn = document.getElementById('magnetic-btn');
-
-            if (magneticBtn) {
-                window.addEventListener('pointermove', (e) => {
-                    // Disable translations entirely for touchscreen and mobile viewports
-                    if (e.pointerType !== 'mouse') {
-                        magneticBtn.style.transform = 'none';
-                        return;
-                    }
-
-                    // Measure the button's live position relative to the viewport
-                    const rect = magneticBtn.getBoundingClientRect();
-
-                    // Parse the CSS transform matrix to determine current active offsets
-                    const computedStyle = window.getComputedStyle(magneticBtn);
-                    const matrix = new DOMMatrix(computedStyle.transform);
-                    const currentTranslateX = matrix.m41 || 0; // Current inline translate X
-                    const currentTranslateY = matrix.m42 || 0; // Current inline translate Y
-
-                    // Subtract translation offsets to extract the true, unmoving base coordinates
-                    const staticLeft = rect.left - currentTranslateX;
-                    const staticTop = rect.top - currentTranslateY;
-
-                    const btnCenterX = staticLeft + rect.width / 2;
-                    const btnCenterY = staticTop + rect.height / 2;
-
-                    const dist = Math.hypot(e.clientX - btnCenterX, e.clientY - btnCenterY);
-
-                    if (dist < 100) {
-                        const pullX = (e.clientX - btnCenterX) * 0.3;
-                        const pullY = (e.clientY - btnCenterY) * 0.3;
-                        magneticBtn.style.transform = `translate(${pullX}px, ${pullY}px) scale(1.03)`;
-                    } else {
-                        magneticBtn.style.transform = 'none';
-                    }
-                });
-            }
 
             // Global Elastic Vector Grid Canvas Engine (Rally / Nithin / Jespr style)
             const canvas = document.getElementById('vector-flow-canvas');
