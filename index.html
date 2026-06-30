@@ -6,7 +6,7 @@
     <title>C DIGI VIBE — Strategy, Marketing & Seamless Event Production</title>
     <meta name="description" content="A strategic marketing and business transformation agency specializing in business strategy, social advertising, and comprehensive media and event production.">
     <meta name="keywords" content="marketing strategy, business transformation, online advertising, event management, media production, SME growth">
-ƒ
+
     <!-- Canonical URL Configuration -->
     <link rel="canonical" href="https://www.cdigivibe.com/">
 
@@ -186,12 +186,12 @@
                 We align business and performance marketing strategies, growth channels, and seamless media & event production logistics. We help ambitious SMEs stabilize internal systems to scale safely and expand their reach to support sustainable growth.
             </p>
 
-           <!-- Symmetrical Sibling CTA Buttons -->
+            <!-- Symmetrical Sibling CTA Buttons (transition-colors used instead of transition-all) -->
             <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-goldAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 text-center">
+                <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-colors duration-300 text-center">
                     Get in Touch
                 </a>
-                <a href="#services" class="px-8 py-4 bg-transparent hover:bg-ink/5 text-ink border border-ink/20 font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 text-center">
+                <a href="#services" class="px-8 py-4 bg-transparent hover:bg-ink/5 text-ink border border-ink/20 font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-colors duration-300 text-center">
                     Our Services
                 </a>
             </div>
@@ -380,7 +380,7 @@
     <!-- SECTION: COLLABORATIONS -->
     <section id="collaborations" class="py-24 bg-limestone border-t border-ink/5 relative z-10 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-12">
-            <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">04. Partnerships</span>
+            <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">04. Collaborations</span>
             <h2 class="font-nunito text-3xl sm:text-4xl font-bold tracking-tight text-ink">
                 Successful Collaborations
             </h2>
@@ -758,50 +758,19 @@
                 });
             });
 
-            // Stable Page-Relative Magnetic Button Engine (Eliminates visual drift)
+            // Elastic Magnetic Button (Rally Style Interaction)
             const magneticBtn = document.getElementById('magnetic-btn');
-
             if (magneticBtn) {
-                let btnCenterX = 0;
-                let btnCenterY = 0;
-
-                // Cache the static baseline coordinates relative to the page document
-                function calculateStaticCenter() {
-                    const currentTransform = magneticBtn.style.transform;
-                    magneticBtn.style.transform = 'none'; // Temporarily clear transform for true measurement
-                    
+                window.addEventListener('mousemove', (e) => {
                     const rect = magneticBtn.getBoundingClientRect();
-                    const scrollX = window.scrollX || window.pageXOffset || 0;
-                    const scrollY = window.scrollY || window.pageYOffset || 0;
-                    
-                    btnCenterX = rect.left + scrollX + rect.width / 2;
-                    btnCenterY = rect.top + scrollY + rect.height / 2;
-                    
-                    magneticBtn.style.transform = currentTransform; // Restore active state
-                }
+                    const btnX = rect.left + rect.width / 2;
+                    const btnY = rect.top + rect.height / 2;
+                    const dist = Math.hypot(e.clientX - btnX, e.clientY - btnY);
 
-                // Initialize coordinate boundaries
-                calculateStaticCenter();
-
-                // Dynamic triggers to protect grid alignment
-                window.addEventListener('resize', calculateStaticCenter);
-
-                window.addEventListener('pointermove', (e) => {
-                    // Disable visual scaling and movement on touch viewports
-                    if (e.pointerType !== 'mouse') {
-                        magneticBtn.style.transform = 'none';
-                        return;
-                    }
-
-                    // Measure coordinates relative to the document
-                    const mousePageX = e.pageX;
-                    const mousePageY = e.pageY;
-                    const dist = Math.hypot(mousePageX - btnCenterX, mousePageY - btnCenterY);
-
-                    if (dist < 120) {
-                        const pullX = (mousePageX - btnCenterX) * 0.22;
-                        const pullY = (mousePageY - btnCenterY) * 0.22;
-                        magneticBtn.style.transform = `translate(${pullX}px, ${pullY}px) scale(1.03)`;
+                    if (dist < 150) {
+                        const pullX = (e.clientX - btnX) * 0.25;
+                        const pullY = (e.clientY - btnY) * 0.25;
+                        magneticBtn.style.transform = `translate(${pullX}px, ${pullY}px) scale(1.05)`;
                     } else {
                         magneticBtn.style.transform = 'none';
                     }
@@ -869,7 +838,7 @@
                 }
             }
 
-            // Unified Pointer & Touch Tracking (Resolves mobile background interactivity)
+            // Mouse coordinates tracking
             let mouseX = -1000;
             let mouseY = -1000;
             
