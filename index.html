@@ -634,19 +634,9 @@
                     </div>
                 </div>
 
-                <!-- Input form container (Fully integrated with FormSubmit & Spam Protection) -->
+                <!-- Input form container (Fully integrated with AJAX and PDPA consent) -->
                 <div class="col-span-12 lg:col-span-7 bg-ink text-limestone p-8 sm:p-12 rounded-2xl">
-                    <form action="https://formsubmit.co/connect@cdigivibe.com" method="POST" class="space-y-8">
-                        
-                        <!-- Anti-Spam Honeypot Field (Invisible to human users, silently blocks automated bots) -->
-                        <input type="text" name="_honey" style="display:none">
-                        
-                        <!-- Redirect configuration (Keeps users on your contact section after successful submission) -->
-                        <input type="hidden" name="_next" value="https://www.cdigivibe.com/#contact">
-                        
-                        <!-- Custom Email Subject Configuration -->
-                        <input type="hidden" name="_subject" value="New C DIGI VIBE Inquiry">
-
+                    <form id="contact-form" class="space-y-8">
                         <div class="relative flex flex-col">
                             <!-- Added name="name" attribute for payload serialization -->
                             <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
@@ -673,7 +663,7 @@
                             </p>
 
                             <div class="pt-4">
-                                <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-sm uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
+                                <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
                                     Contact us
                                 </button>
                             </div>
@@ -944,7 +934,65 @@
             // Initialize Grid
             updateGridDestinations(0);
             animateGrid();
+            
+            // AJAX Background Form Submission & Success State Renderer
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent browser from redirecting or reloading
 
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerText;
+
+                    // Transition to "Sending..." state
+                    submitBtn.innerText = "Sending...";
+                    submitBtn.disabled = true;
+
+                    // Serialize input names and values
+                    const formData = new FormData(contactForm);
+                    const payload = {};
+                    formData.forEach((value, key) => {
+                        payload[key] = value;
+                    });
+
+                    // Send payload in background to FormSubmit AJAX endpoint
+                    fetch("https://formsubmit.co/ajax/connect@cdigivibe.com", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success === "true") {
+                            // Inject a clean success state card into the dark form container
+                            contactForm.innerHTML = `
+                                <div class="flex flex-col items-center justify-center py-20 text-center space-y-6">
+                                    <div class="w-16 h-16 rounded-full border-2 border-cyanAccent flex items-center justify-center text-cyanAccent text-2xl font-bold">✓</div>
+                                    <div class="space-y-2">
+                                        <h3 class="font-nunito text-2xl font-bold text-white">Inquiry Received</h3>
+                                        <p class="font-open text-sm text-limestone/70 max-w-sm">
+                                            Thank you. Your strategic requirements have been successfully transmitted. Our team will review your details and reach out to you shortly.
+                                        </p>
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            alert("Submission failed. Please try again or email us directly at connect@cdigivibe.com.");
+                            submitBtn.innerText = originalText;
+                            submitBtn.disabled = false;
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Transmission error:", error);
+                        alert("An error occurred during submission. Please try again or email us directly at connect@cdigivibe.com.");
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
             // Clean Section Reveal Observer
             const sections = document.querySelectorAll('.reveal-section');
             const observer = new IntersectionObserver((entries, obs) => {
