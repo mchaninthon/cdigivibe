@@ -186,7 +186,7 @@
                 We align business and performance marketing strategies, growth channels, and seamless media & event production logistics. We help ambitious SMEs stabilize internal systems to scale safely and expand their reach to support sustainable growth.
             </p>
 
-           <!-- Symmetrical Sibling CTA Buttons -->
+           <!-- Symmetrical Sibling CTA Buttons (transition-colors handles visual center stability on leave) -->
             <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
                 <a href="#contact" class="px-8 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-colors duration-300 text-center">
                     Get in Touch
@@ -358,7 +358,7 @@
                 <div class="col-span-12 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 lg:pl-12">
                     <div class="border-t border-limestone/20 pt-8">
                         <span class="font-nunito text-5xl sm:text-7xl font-extrabold text-cyanAccent tracking-tight block">+36%</span>
-                        <span class="font-open text-xs uppercase tracking-widest text-cyanAccent font-semibold block mt-2">YoY Revenue Growth</span>
+                        <span class="font-open text-xs uppercase tracking-widest text-white/50 text-cyanAccent font-semibold block mt-2">YoY Revenue Growth</span>
                         <p class="font-open text-sm text-limestone/60 mt-3 leading-relaxed">
                             Achieved for an SME client within 9 months by restructuring workflows and optimizing internal business operations.
                         </p>
@@ -366,7 +366,7 @@
 
                     <div class="border-t border-limestone/20 pt-8">
                         <span class="font-nunito text-5xl sm:text-7xl font-extrabold text-cyanAccent tracking-tight block">40%</span>
-                        <span class="font-open text-xs uppercase tracking-widest text-cyanAccent font-semibold block mt-2">Social Media Sales Conversion</span>
+                        <span class="font-open text-xs uppercase tracking-widest text-white/50 text-cyanAccent font-semibold block mt-2">Social Media Sales Conversion</span>
                         <p class="font-open text-sm text-limestone/60 mt-3 leading-relaxed">
                             Sales conversion rate secured for our clients within 2 months of launching and optimizing social media ad campaigns.
                         </p>
@@ -380,7 +380,7 @@
     <!-- SECTION: COLLABORATIONS -->
     <section id="collaborations" class="py-24 bg-limestone border-t border-ink/5 relative z-10 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-12">
-            <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">04. Collaborations</span>
+            <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">04. Partnerships</span>
             <h2 class="font-nunito text-3xl sm:text-4xl font-bold tracking-tight text-ink">
                 Successful Collaborations
             </h2>
@@ -457,7 +457,7 @@
                         <img src="assets/CDV_Client%20Logo/fitmarketinglab.png" alt="Fit Marketing Lab" class="max-w-full max-h-full object-contain opacity-70" />
                     </div>
                     <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
-                        <img src="assets/CDV_Client%20Logo/harper.png" alt="Harper" class="max-w-full max-h-full object-contain opacity-70" />
+                        <img src="assets/CDV_Logo/CDV_Menu Logo.png" alt="C DIGI VIBE" class="max-w-full max-h-full object-contain opacity-70" />
                     </div>
                     <div class="w-40 h-20 flex items-center justify-center flex-shrink-0">
                         <img src="assets/CDV_Client%20Logo/khaokho.png" alt="Khaokho" class="max-w-full max-h-full object-contain opacity-70" />
@@ -634,42 +634,43 @@
                     </div>
                 </div>
 
-                <!-- Input form container (Fully integrated with AJAX and PDPA consent) -->
+                <!-- Input form container -->
                 <div class="col-span-12 lg:col-span-7 bg-ink text-limestone p-8 sm:p-12 rounded-2xl">
-                    <form id="contact-form" class="space-y-8">
+                    <form class="space-y-8">
                         <div class="relative flex flex-col">
-                            <!-- Added name="name" attribute for payload serialization -->
-                            <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
-                            <label for="name" class="absolute left-0 -top-4 text-xs text-limestone/40 font-open tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Your Name</label>
+                            <input type="text" id="name" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
+                            <label for="name" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Your Name</label>
                         </div>
 
                         <div class="relative flex flex-col">
-                            <!-- Added name="email" attribute for payload serialization -->
-                            <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
-                            <label for="email" class="absolute left-0 -top-4 text-xs text-limestone/40 font-open tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Email Address</label>
+                            <input type="email" id="email" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
+                            <label for="email" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Email Address</label>
                         </div>
 
                         <div class="relative flex flex-col">
-                            <!-- Added name="requirements" attribute for payload serialization -->
-                            <textarea id="brief" name="requirements" required rows="4" class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer resize-none" placeholder=" "></textarea>
-                            <label for="brief" class="absolute left-0 -top-4 text-xs text-limestone/40 font-open tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Tell us about your requirements</label>
+                            <textarea id="brief" required rows="4" class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer resize-none" placeholder=" "></textarea>
+                            <label for="brief" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cyanAccent">Tell us about your requirements</label>
                         </div>
 
                         <div class="pt-4">
                             <!-- PDPA Legal Consent Disclosure -->
-                            <p class="text-[11px] text-limestone/50 leading-relaxed font-open">
-                                By submitting this inquiry, you acknowledge and consent to the collection and processing of your personal data as outlined in our 
-                                <a href="privacy-policy.html" class="text-cyanAccent underline hover:text-white transition-colors">Privacy Policy</a>.
-                            </p>
+                        <p class="text-[11px] text-limestone/50 leading-relaxed font-open">
+                            By submitting this inquiry, you acknowledge and consent to the collection and processing of your personal data as outlined in our 
+                            <a href="privacy-policy.html" class="text-cyanAccent underline hover:text-white transition-colors">Privacy Policy</a>.
+                        </p>
 
-                            <div class="pt-4">
-                                <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
-                                    Contact us
-                                </button>
-                            </div>
+                        <div class="pt-4">
+                            <!-- Clean primary background, transitioning into Gold Accent strictly on hover -->
+                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-sm uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
+                                Contact us
+                            </button>
+                        </div>
                         </div>
                     </form>
                 </div>
+            </div>
+
+        </div>
     </section>
 
     <!-- FOOTER -->
@@ -757,6 +758,24 @@
                 });
             });
 
+            // Elastic Magnetic Button (Rally Style Interaction)
+            const magneticBtn = document.getElementById('magnetic-btn');
+            if (magneticBtn) {
+                window.addEventListener('mousemove', (e) => {
+                    const rect = magneticBtn.getBoundingClientRect();
+                    const btnX = rect.left + rect.width / 2;
+                    const btnY = rect.top + rect.height / 2;
+                    const dist = Math.hypot(e.clientX - btnX, e.clientY - btnY);
+
+                    if (dist < 150) {
+                        const pullX = (e.clientX - btnX) * 0.25;
+                        const pullY = (e.clientY - btnY) * 0.25;
+                        magneticBtn.style.transform = `translate(${pullX}px, ${pullY}px) scale(1.05)`;
+                    } else {
+                        magneticBtn.style.transform = 'none';
+                    }
+                });
+            }
 
             // Global Elastic Vector Grid Canvas Engine (Rally / Nithin / Jespr style)
             const canvas = document.getElementById('vector-flow-canvas');
@@ -934,65 +953,7 @@
             // Initialize Grid
             updateGridDestinations(0);
             animateGrid();
-            
-            // AJAX Background Form Submission & Success State Renderer
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent browser from redirecting or reloading
 
-                    const submitBtn = contactForm.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.innerText;
-
-                    // Transition to "Sending..." state
-                    submitBtn.innerText = "Sending...";
-                    submitBtn.disabled = true;
-
-                    // Serialize input names and values
-                    const formData = new FormData(contactForm);
-                    const payload = {};
-                    formData.forEach((value, key) => {
-                        payload[key] = value;
-                    });
-
-                    // Send payload in background to FormSubmit AJAX endpoint
-                    fetch("https://formsubmit.co/ajax/connect@cdigivibe.com", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Accept": "application/json"
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success === "true") {
-                            // Inject a clean success state card into the dark form container
-                            contactForm.innerHTML = `
-                                <div class="flex flex-col items-center justify-center py-20 text-center space-y-6">
-                                    <div class="w-16 h-16 rounded-full border-2 border-cyanAccent flex items-center justify-center text-cyanAccent text-2xl font-bold">✓</div>
-                                    <div class="space-y-2">
-                                        <h3 class="font-nunito text-2xl font-bold text-white">Inquiry Received</h3>
-                                        <p class="font-open text-sm text-limestone/70 max-w-sm">
-                                            Thank you. Your strategic requirements have been successfully transmitted. Our team will review your details and reach out to you shortly.
-                                        </p>
-                                    </div>
-                                </div>
-                            `;
-                        } else {
-                            alert("Submission failed. Please try again or email us directly at connect@cdigivibe.com.");
-                            submitBtn.innerText = originalText;
-                            submitBtn.disabled = false;
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Transmission error:", error);
-                        alert("An error occurred during submission. Please try again or email us directly at connect@cdigivibe.com.");
-                        submitBtn.innerText = originalText;
-                        submitBtn.disabled = false;
-                    });
-                });
-            }
             // Clean Section Reveal Observer
             const sections = document.querySelectorAll('.reveal-section');
             const observer = new IntersectionObserver((entries, obs) => {
