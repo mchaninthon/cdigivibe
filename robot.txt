@@ -1,0 +1,6 @@
+# Robots.txt configuration for C Digi Vibe
+User-agent: *
+Allow: /
+
+# Direct search engine crawlers to your XML Roadmap
+Sitemap: https://www.cdigivibe.com/sitemap.xml
