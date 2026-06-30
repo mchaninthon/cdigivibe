@@ -75,7 +75,7 @@
                         ink: '#131407',      // Supportive Dark
                         cobalt: '#2B2E8C',    // Primary Accent Blue
                         cyanAccent: '#50C9E6', // Accent Color A (Success Highlight)
-                        cyanAccent: '#E6B850', // Accent Color B (Contact Hover)
+                        goldAccent: '#E6B850', // Accent Color B (Contact Hover)
                     },
                     fontFamily: {
                         nunito: ['"Nunito Sans"', 'sans-serif'],
@@ -186,13 +186,11 @@
                 We align business and performance marketing strategies, growth channels, and seamless media & event production logistics. We help ambitious SMEs stabilize internal systems to scale safely and expand their reach to support sustainable growth.
             </p>
 
-           <!-- Symmetrical Hero Buttons with Static Position Wrapper -->
+           <!-- Symmetrical Sibling CTA Buttons -->
             <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <div id="magnetic-wrap" class="inline-block">
-                    <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-cyanAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 text-center block">
-                        Get in Touch
-                    </a>
-                </div>
+                <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-goldAccent text-white hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 text-center">
+                    Get in Touch
+                </a>
                 <a href="#services" class="px-8 py-4 bg-transparent hover:bg-ink/5 text-ink border border-ink/20 font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 text-center">
                     Our Services
                 </a>
@@ -760,27 +758,49 @@
                 });
             });
 
-            // Elastic Magnetic Button (Stable Pointer Interaction via Wrapper)
-            const magneticWrap = document.getElementById('magnetic-wrap');
+            // Stable Page-Relative Magnetic Button Engine (Eliminates visual drift)
             const magneticBtn = document.getElementById('magnetic-btn');
-            
-            if (magneticWrap && magneticBtn) {
+
+            if (magneticBtn) {
+                let btnCenterX = 0;
+                let btnCenterY = 0;
+
+                // Cache the static baseline coordinates relative to the page document
+                function calculateStaticCenter() {
+                    const currentTransform = magneticBtn.style.transform;
+                    magneticBtn.style.transform = 'none'; // Temporarily clear transform for true measurement
+                    
+                    const rect = magneticBtn.getBoundingClientRect();
+                    const scrollX = window.scrollX || window.pageXOffset || 0;
+                    const scrollY = window.scrollY || window.pageYOffset || 0;
+                    
+                    btnCenterX = rect.left + scrollX + rect.width / 2;
+                    btnCenterY = rect.top + scrollY + rect.height / 2;
+                    
+                    magneticBtn.style.transform = currentTransform; // Restore active state
+                }
+
+                // Initialize coordinate boundaries
+                calculateStaticCenter();
+
+                // Dynamic triggers to protect grid alignment
+                window.addEventListener('resize', calculateStaticCenter);
+
                 window.addEventListener('pointermove', (e) => {
-                    // Disable magnetic visual distortion for mobile and tablet touch users
+                    // Disable visual scaling and movement on touch viewports
                     if (e.pointerType !== 'mouse') {
                         magneticBtn.style.transform = 'none';
                         return;
                     }
 
-                    // Measure the static parent container to prevent layout calculation loops
-                    const rect = magneticWrap.getBoundingClientRect();
-                    const btnX = rect.left + rect.width / 2;
-                    const btnY = rect.top + rect.height / 2;
-                    const dist = Math.hypot(e.clientX - btnX, e.clientY - btnY);
+                    // Measure coordinates relative to the document
+                    const mousePageX = e.pageX;
+                    const mousePageY = e.pageY;
+                    const dist = Math.hypot(mousePageX - btnCenterX, mousePageY - btnCenterY);
 
                     if (dist < 120) {
-                        const pullX = (e.clientX - btnX) * 0.2;
-                        const pullY = (e.clientY - btnY) * 0.2;
+                        const pullX = (mousePageX - btnCenterX) * 0.22;
+                        const pullY = (mousePageY - btnCenterY) * 0.22;
                         magneticBtn.style.transform = `translate(${pullX}px, ${pullY}px) scale(1.03)`;
                     } else {
                         magneticBtn.style.transform = 'none';
