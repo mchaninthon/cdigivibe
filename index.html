@@ -837,14 +837,19 @@
                 }
             }
 
-            // Mouse coordinates tracking
+            // Unified Pointer & Touch Tracking (Resolves mobile background interactivity)
             let mouseX = -1000;
             let mouseY = -1000;
-            window.addEventListener('mousemove', (e) => {
+            
+            window.addEventListener('pointermove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
             });
-            window.addEventListener('mouseleave', () => {
+            window.addEventListener('pointerleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+            window.addEventListener('pointerup', () => {
                 mouseX = -1000;
                 mouseY = -1000;
             });
