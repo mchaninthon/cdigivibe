@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C DIGI VIBE — Strategy, Marketing & Seamless Event Production</title>
+    <meta name="description" content="A strategic marketing and business transformation agency specializing in business strategy, social advertising, and comprehensive media and event production.">
+    <meta name="keywords" content="marketing strategy, business transformation, online advertising, event management, media production, SME growth">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Nunito Sans (H1/H2), Open Sans (H3/H4/Body), IBM Plex Sans Thai -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600&family=Nunito+Sans:wght@600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        limestone: '#EFEEED', // Primary Light
+                        ink: '#131407',      // Supportive Dark
+                        cobalt: '#2B2E8C',    // Primary Accent Blue
+                        cyanAccent: '#50C9E6', // Accent Color A (Success Highlight)
+                        goldAccent: '#E6B850', // Accent Color B (Contact Hover)
+                    },
+                    fontFamily: {
+                        nunito: ['"Nunito Sans"', 'sans-serif'],
+                        open: ['"Open Sans"', 'sans-serif'],
+                        thai: ['"IBM Plex Sans Thai"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #EFEEED;
+            color: #131407;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+        }
+
+        /* Seamless reveal states on scroll */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Infinite Marquee Animations for Logos */
+        @keyframes marquee-left {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
+        }
+        .animate-marquee-left {
+            animation: marquee-left 30s linear infinite;
+        }
+        .animate-marquee-right {
+            animation: marquee-right 30s linear infinite;
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden">
+
+    <!-- Global Background Vector Flow Canvas -->
+    <canvas id="vector-flow-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Top Structural Edge -->
+    <div class="w-full h-1 bg-cobalt z-50 fixed top-0 left-0"></div>
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-1 left-0 w-full z-40 bg-limestone/90 backdrop-blur-md border-b border-ink/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <svg class="w-8 h-8 text-cobalt transition-transform duration-500 group-hover:rotate-90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8"/>
+                    <path d="M50 5L50 95" stroke="currentColor" stroke-width="8"/>
+                    <path d="M5 50L95 50" stroke="currentColor" stroke-width="8"/>
+                </svg>
+                <span class="font-nunito font-bold tracking-[0.2em] text-lg text-ink">C DIGI VIBE</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-12">
+                <a href="#about" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/70 hover:text-cobalt transition-colors">About</a>
+                <a href="#services" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/70 hover:text-cobalt transition-colors">Services</a>
+                <a href="#results" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/70 hover:text-cobalt transition-colors">Success</a>
+                <a href="#partners" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/70 hover:text-cobalt transition-colors">Partners</a>
+                <a href="#contact" class="px-6 py-2.5 rounded-full bg-ink text-limestone hover:bg-cobalt hover:text-white font-open font-semibold text-xs uppercase tracking-widest transition-all duration-300">Contact</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="mobile-toggle" class="md:hidden flex flex-col justify-between h-4 w-5 focus:outline-none pointer-events-auto" aria-label="Toggle navigation menu">
+                <span class="h-[2px] w-full bg-ink rounded transition-transform duration-300" id="bar1"></span>
+                <span class="h-[2px] w-full bg-ink rounded transition-opacity duration-300" id="bar2"></span>
+                <span class="h-[2px] w-full bg-ink rounded transition-transform duration-300" id="bar3"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="fixed inset-x-0 top-20 bg-limestone/95 backdrop-blur-md border-b border-ink/10 flex flex-col space-y-6 px-8 py-8 shadow-2xl hidden pointer-events-auto overflow-y-auto max-h-[calc(100vh-5rem)]">
+            <a href="#about" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/80">About</a>
+            <a href="#services" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/80">Services</a>
+            <a href="#results" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/80">Success</a>
+            <a href="#partners" class="font-open font-semibold text-xs uppercase tracking-widest text-ink/80">Partners</a>
+            <a href="#contact" class="block text-center py-3.5 bg-cobalt text-white rounded-xl font-open font-semibold text-xs uppercase tracking-widest">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- SECTION: HERO (Symmetrical & Clean Sizing) -->
+    <section id="hero" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 w-full text-center relative z-10 py-16">
+            <div class="flex items-center justify-center space-x-3 mb-6">
+                <span class="w-8 h-[1px] bg-cobalt"></span>
+                <p class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold">C Digi Vibe Co., Ltd.</p>
+                <span class="w-8 h-[1px] bg-cobalt"></span>
+            </div>
+            
+            <h1 class="font-nunito font-semibold text-3xl sm:text-5xl lg:text-6xl leading-[1.15] tracking-tight text-ink mb-8">
+                Your Partner in Strategy, Marketing <br class="hidden sm:block"/>
+                <span class="text-cobalt">& Seamless Execution.</span>
+            </h1>
+
+            <p class="font-open text-lg text-ink/75 max-w-3xl mx-auto leading-relaxed mb-12">
+                We plan business strategies, execute digital marketing campaigns, and provide comprehensive media and live event production to support sustainable growth.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#contact" id="magnetic-btn" class="px-8 py-4 bg-cobalt hover:bg-ink text-white font-open font-semibold text-xs uppercase tracking-widest rounded-xl shadow-md transition-all duration-300 text-center">
+                    Get in Touch
+                </a>
+                <a href="#services" class="px-8 py-4 bg-transparent hover:bg-ink/5 text-ink border border-ink/20 font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 text-center">
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ABOUT US -->
+    <section id="about" class="py-24 md:py-32 border-t border-ink/5 bg-transparent relative z-10 reveal-section">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-12 gap-y-12 lg:gap-x-12">
+            
+            <div class="col-span-12 lg:col-span-5">
+                <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-4">01. About Us</span>
+                <h2 class="font-nunito text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-tight">
+                    Who We Are
+                </h2>
+            </div>
+            
+            <div class="col-span-12 lg:col-span-7 flex flex-col justify-between">
+                <p class="font-open text-lg text-ink/80 leading-relaxed mb-8">
+                    C Digi Vibe is a strategic marketing and business transformation agency offering comprehensive planning, execution, and logistical support for SMEs and corporate brands. Our expertise scales from operational restructuring to performance social advertising, high-fidelity corporate media, and large-scale physical event execution.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-ink/10">
+                    <div>
+                        <h3 class="font-open font-semibold text-xs uppercase tracking-widest text-cobalt mb-3">Custom Client Focus</h3>
+                        <p class="font-open text-sm text-ink/70 leading-relaxed">
+                            We step directly into your operational environment, designing execution workflows that balance resources with customer acquisition.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="font-open font-semibold text-xs uppercase tracking-widest text-cobalt mb-3">Diverse Expertise</h3>
+                        <p class="font-open text-sm text-ink/70 leading-relaxed">
+                            We coordinate high-level strategic models, digital performance ad spends, and physical video and event production tasks under one roof.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: SERVICES (Detailed Bullet Lists Restored) -->
+    <section id="services" class="py-24 md:py-32 border-t border-ink/5 bg-transparent relative z-10 reveal-section">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="mb-16">
+                <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-4">02. Capabilities</span>
+                <h2 class="font-nunito text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink">Our Services</h2>
+            </div>
+
+            <!-- 3-Column Structuring -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 border-t border-ink/10 pt-12">
+                
+                <!-- Business Services -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-2.5 h-2.5 bg-cobalt rounded-full"></span>
+                        <h3 class="font-nunito text-2xl font-bold text-ink">Business Services</h3>
+                    </div>
+                    <p class="font-open text-sm text-ink/75 leading-relaxed">
+                        We optimize corporate systems, planning structural transformations to ensure long-term, stable operations.
+                    </p>
+                    <ul class="space-y-3 font-open text-sm text-ink/85 border-t border-ink/10 pt-6">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>SME Business Strategy & Planning</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Business Transformation Consulting</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Strategy & Organizational Development</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Growth Planning & Business Scaling</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Marketing Services -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-2.5 h-2.5 bg-cobalt rounded-full"></span>
+                        <h3 class="font-nunito text-2xl font-bold text-ink">Marketing Services</h3>
+                    </div>
+                    <p class="font-open text-sm text-ink/75 leading-relaxed">
+                        We configure ad metrics, map strategic targeting models, and execute campaign conversions across social networks.
+                    </p>
+                    <ul class="space-y-3 font-open text-sm text-ink/85 border-t border-ink/10 pt-6">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Marketing Strategy & Campaign Management</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Growth Marketing & Brand Positioning</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Social Media & Performance Advertising</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Media Strategy, Planning & Buying</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Production Services -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-2.5 h-2.5 bg-cobalt rounded-full"></span>
+                        <h3 class="font-nunito text-2xl font-bold text-ink">Production Services</h3>
+                    </div>
+                    <p class="font-open text-sm text-ink/75 leading-relaxed">
+                        We manage on-site physical event setups and execute corporate media, photography, and video systems.
+                    </p>
+                    <ul class="space-y-3 font-open text-sm text-ink/85 border-t border-ink/10 pt-6">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Media Production (Photography & Video)</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Live Streaming, OB & Recording Setup</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Event Management & Physical Execution</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-cobalt select-none mt-1">▪</span>
+                            <span>Experiential Marketing & Interactive Media</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: SUCCESS METRICS (Ink Background - Single Accent: Cyan) -->
+    <section id="results" class="py-24 md:py-32 border-t border-ink/5 bg-ink text-limestone relative z-10 reveal-section">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-12 gap-y-12 lg:gap-x-12 items-center">
+                <div class="col-span-12 lg:col-span-5">
+                    <!-- Contrast rescue: using ONLY Cyan as the sole highlight accent color in this dark section -->
+                    <span class="font-open text-xs uppercase tracking-[0.3em] text-cyanAccent font-semibold block mb-4">03. Success</span>
+                    <h2 class="font-nunito text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                        Successful Projects
+                    </h2>
+                    <p class="font-open text-base text-limestone/70 mt-6 leading-relaxed">
+                        We evaluate system metrics continuously to confirm our organizational strategy translates directly to your growth.
+                    </p>
+                </div>
+
+                <div class="col-span-12 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 lg:pl-12">
+                    <div class="border-t border-limestone/20 pt-8">
+                        <span class="font-nunito text-5xl sm:text-7xl font-extrabold text-cyanAccent tracking-tight block">+36%</span>
+                        <span class="font-open text-xs uppercase tracking-widest text-white/50 font-semibold block mt-2">Operational Restructuring Growth</span>
+                        <p class="font-open text-sm text-limestone/60 mt-3 leading-relaxed">
+                            Achieved for our clients within 9 months of optimizing operational frameworks and corporate planning structures.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-limestone/20 pt-8">
+                        <span class="font-nunito text-5xl sm:text-7xl font-extrabold text-cyanAccent tracking-tight block">40%</span>
+                        <span class="font-open text-xs uppercase tracking-widest text-white/50 font-semibold block mt-2">Sales Ad Conversions</span>
+                        <p class="font-open text-sm text-limestone/60 mt-3 leading-relaxed">
+                            Conversion performance reached within 2 months of optimizing targeted social media and advertising parameters.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: ECOSYSTEM / PARTNERS (Dual Infinite Scroll Marquee) -->
+    <section id="partners" class="py-24 bg-limestone border-t border-ink/5 relative z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-12">
+            <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">04. Partnerships</span>
+            <h2 class="font-nunito text-3xl sm:text-4xl font-bold tracking-tight text-ink">
+                Successful Collaborations
+            </h2>
+        </div>
+
+        <!-- 2-Line Moving Logo Marquee -->
+        <div class="space-y-6 w-full relative">
+            
+            <!-- Marquee Row 1: Leftward -->
+            <div class="flex overflow-hidden w-full select-none border-t border-b border-ink/5 py-4 bg-limestone">
+                <div class="flex whitespace-nowrap animate-marquee-left space-x-16 items-center pr-16">
+                    <span class="font-nunito font-semibold text-2xl text-ink/35 uppercase tracking-widest">harper</span>
+                    <span class="font-nunito font-extrabold text-2xl text-ink/35 uppercase tracking-widest">BIGPLAY</span>
+                    <span class="font-nunito font-medium text-2xl text-ink/35 uppercase tracking-widest">DIGITAL MOTIVE</span>
+                    <span class="font-nunito font-semibold text-2xl text-ink/35 uppercase tracking-widest">Kindee</span>
+                    <span class="font-nunito font-light text-2xl text-ink/35 uppercase tracking-widest">arto</span>
+                </div>
+                <div class="flex whitespace-nowrap animate-marquee-left space-x-16 items-center pr-16" aria-hidden="true">
+                    <span class="font-nunito font-semibold text-2xl text-ink/35 uppercase tracking-widest">harper</span>
+                    <span class="font-nunito font-extrabold text-2xl text-ink/35 uppercase tracking-widest">BIGPLAY</span>
+                    <span class="font-nunito font-medium text-2xl text-ink/35 uppercase tracking-widest">DIGITAL MOTIVE</span>
+                    <span class="font-nunito font-semibold text-2xl text-ink/35 uppercase tracking-widest">Kindee</span>
+                    <span class="font-nunito font-light text-2xl text-ink/35 uppercase tracking-widest">arto</span>
+                </div>
+            </div>
+
+            <!-- Marquee Row 2: Rightward -->
+            <div class="flex overflow-hidden w-full select-none border-b border-ink/5 py-4 bg-limestone">
+                <div class="flex whitespace-nowrap animate-marquee-right space-x-16 items-center pr-16">
+                    <span class="font-nunito font-semibold text-2xl text-cobalt/35 uppercase tracking-widest">TOYOTA ALIVE</span>
+                    <span class="font-open font-semibold text-2xl text-ink/35 uppercase tracking-widest">ORCHID</span>
+                    <span class="font-nunito font-bold text-2xl text-cobalt/35 uppercase tracking-widest">GR RACING</span>
+                    <span class="font-nunito font-extrabold text-2xl text-ink/35 uppercase tracking-widest">REVO RACING</span>
+                    <span class="font-nunito font-semibold text-2xl text-ink/35 uppercase tracking-widest">BFGoodrich</span>
+                </div>
+                <div class="flex whitespace-nowrap animate-marquee-right space-x-16 items-center pr-16" aria-hidden="true">
+                    <span class="font-nunito font-semibold text-2xl text-cobalt/35 uppercase tracking-widest">TOYOTA ALIVE</span>
+                    <span class="font-open font-semibold text-2xl text-ink/35 uppercase tracking-widest">ORCHID</span>
+                    <span class="font-nunito font-bold text-2xl text-cobalt/35 uppercase tracking-widest">GR RACING</span>
+                    <span class="font-nunito font-extrabold text-2xl text-ink/35 uppercase tracking-widest">REVO RACING</span>
+                    <span class="font-nunito font-semibold text-2xl text-ink/35 uppercase tracking-widest">BFGoodrich</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: TEAM -->
+    <section id="team" class="py-24 md:py-32 bg-transparent relative z-10 reveal-section">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="mb-16">
+                <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-3">05. Team</span>
+                <h2 class="font-nunito text-3xl sm:text-5xl font-bold tracking-tight text-ink">Our Team</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="flex flex-col">
+                    <div class="aspect-square bg-ink/5 rounded-2xl overflow-hidden mb-6 relative group">
+                        <img src="https://via.placeholder.com/400x400/EFEEED/111111?text=Veran+T." alt="Veran T." class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-cobalt/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="font-nunito text-xl font-bold text-ink">Veran T.</h3>
+                    <p class="font-open text-xs uppercase tracking-widest text-cobalt mt-1">Marketing Strategy & Media</p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="flex flex-col">
+                    <div class="aspect-square bg-ink/5 rounded-2xl overflow-hidden mb-6 relative group">
+                        <img src="https://via.placeholder.com/400x400/EFEEED/111111?text=Chaninthon+T." alt="Chaninthon T." class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-cobalt/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="font-nunito text-xl font-bold text-ink">Chaninthon T.</h3>
+                    <p class="font-open text-xs uppercase tracking-widest text-cobalt mt-1">Business Strategy & Operations</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="flex flex-col">
+                    <div class="aspect-square bg-ink/5 rounded-2xl overflow-hidden mb-6 relative group">
+                        <img src="https://via.placeholder.com/400x400/EFEEED/111111?text=Thibodin+S." alt="Thibodin S." class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-cobalt/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="font-nunito text-xl font-bold text-ink">Thibodin S.</h3>
+                    <p class="font-open text-xs uppercase tracking-widest text-cobalt mt-1">Media Production</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="flex flex-col">
+                    <div class="aspect-square bg-ink/5 rounded-2xl overflow-hidden mb-6 relative group">
+                        <img src="https://via.placeholder.com/400x400/EFEEED/111111?text=Vin+P." alt="Vin P." class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-cobalt/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="font-nunito text-xl font-bold text-ink">Vin P.</h3>
+                    <p class="font-open text-xs uppercase tracking-widest text-cobalt mt-1">Event & Project Management</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT (Typographically Balanced Sizing) -->
+    <section id="contact" class="py-24 md:py-32 border-t border-ink/5 bg-transparent relative z-10 reveal-section">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-12 gap-y-12 lg:gap-x-12">
+                <div class="col-span-12 lg:col-span-5 flex flex-col justify-between">
+                    <div>
+                        <span class="font-open text-xs uppercase tracking-[0.3em] text-cobalt font-semibold block mb-4">06. Contact</span>
+                        <!-- Typographically Balanced Heading size, matching the primary sections -->
+                        <h2 class="font-nunito text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-tight mb-6">
+                            Get in Touch
+                        </h2>
+                        <p class="font-open text-base text-ink/70 leading-relaxed max-w-sm mb-12">
+                            Share your organizational challenges, and we will evaluate your systems.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="tel:+66825564515" class="block font-nunito text-xl font-bold text-ink hover:text-cobalt transition-colors">+66 82 556 4515</a>
+                        <a href="mailto:connect@cdigivibe.com" class="block font-nunito text-xl font-bold text-ink hover:text-cobalt transition-colors">connect@cdigivibe.com</a>
+                        <address class="block font-open text-sm text-ink/55 not-italic pt-4 leading-relaxed border-t border-ink/10">
+                            118 Soi Chulalongkorn 5, Block 28X, 4th Floor,<br/>X408, Wang Mai, Pathumwan, Bangkok 10330
+                        </address>
+                    </div>
+                </div>
+
+                <!-- Input form container -->
+                <div class="col-span-12 lg:col-span-7 bg-ink text-limestone p-8 sm:p-12 rounded-2xl">
+                    <form class="space-y-8">
+                        <div class="relative flex flex-col">
+                            <input type="text" id="name" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
+                            <label for="name" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cobalt">Your Name</label>
+                        </div>
+
+                        <div class="relative flex flex-col">
+                            <input type="email" id="email" required class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer" placeholder=" " />
+                            <label for="email" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cobalt">Email Address</label>
+                        </div>
+
+                        <div class="relative flex flex-col">
+                            <textarea id="brief" required rows="4" class="w-full bg-transparent border-b border-limestone/20 py-3 text-lg font-open text-white focus:outline-none focus:border-cobalt transition-colors peer resize-none" placeholder=" "></textarea>
+                            <label for="brief" class="absolute left-0 top-3 text-limestone/40 font-open text-sm uppercase tracking-wider pointer-events-none transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-cobalt">Project Operational Goals & Requirements</label>
+                        </div>
+
+                        <div class="pt-4">
+                            <!-- Custom single Accent hover state (Gold) -->
+                            <button type="submit" class="w-full sm:w-auto px-10 py-4.5 bg-limestone hover:bg-goldAccent text-ink hover:text-ink font-open font-semibold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md">
+                                Submit Systems Brief
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-ink text-limestone py-16 border-t border-limestone/10 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-x-12">
+            
+            <div class="col-span-1 md:col-span-2 space-y-6">
+                <a href="#hero" class="flex items-center space-x-3">
+                    <svg class="w-8 h-8 text-cobalt" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8"/>
+                        <path d="M50 5L50 95" stroke="currentColor" stroke-width="8"/>
+                        <path d="M5 50L95 50" stroke="currentColor" stroke-width="8"/>
+                    </svg>
+                    <span class="font-nunito font-semibold tracking-[0.25em] text-lg text-white">C DIGI VIBE</span>
+                </a>
+                <p class="font-open text-xs text-limestone/50 leading-relaxed max-w-sm">
+                    Complete strategic alignments and digital conversion tracks for growth-minded SME operations.
+                </p>
+                <p class="font-open text-[10px] text-limestone/30">
+                    &copy; 2026 C Digi Vibe Co., Ltd. All rights reserved.
+                </p>
+            </div>
+
+            <div>
+                <p class="font-open text-[10px] uppercase tracking-[0.3em] text-limestone/40 mb-4">Channels</p>
+                <ul class="space-y-2 font-open text-xs uppercase tracking-wider font-semibold">
+                    <li><a href="#about" class="hover:text-cobalt transition-colors">About</a></li>
+                    <li><a href="#services" class="hover:text-cobalt transition-colors">Services</a></li>
+                    <li><a href="#results" class="hover:text-cobalt transition-colors">Success</a></li>
+                    <li><a href="#partners" class="hover:text-cobalt transition-colors">Partners</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="font-open text-[10px] uppercase tracking-[0.3em] text-limestone/40 mb-4">Ecosystem Access</p>
+                <ul class="space-y-2 font-open text-xs uppercase tracking-wider font-semibold">
+                    <li><a href="tel:+66825564515" class="hover:text-cobalt transition-colors">+66 82 556 4515</a></li>
+                    <li><a href="mailto:connect@cdigivibe.com" class="hover:text-cobalt transition-colors">connect@cdigivibe.com</a></li>
+                    <li><a href="https://www.cdigivibe.com" target="_blank" rel="noopener noreferrer" class="hover:text-cobalt transition-colors">www.cdigivibe.com</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE STRATEGIC CANVASES & FLOW ACTIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Mobile Menu Control Logic
+            const toggle = document.getElementById('mobile-toggle');
+            const menu = document.getElementById('mobile-menu');
+            const b1 = document.getElementById('bar1');
+            const b2 = document.getElementById('bar2');
+            const b3 = document.getElementById('bar3');
+
+            toggle.addEventListener('click', () => {
+                const isHidden = menu.classList.contains('hidden');
+                if (isHidden) {
+                    menu.classList.remove('hidden');
+                    b1.style.transform = 'translateY(6px) rotate(45deg)';
+                    b2.style.opacity = '0';
+                    b3.style.transform = 'translateY(-6px) rotate(-45deg)';
+                } else {
+                    menu.classList.add('hidden');
+                    b1.style.transform = 'none';
+                    b2.style.opacity = '1';
+                    b3.style.transform = 'none';
+                }
+            });
+
+            menu.querySelectorAll('a').forEach(l => {
+                l.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    b1.style.transform = 'none';
+                    b2.style.opacity = '1';
+                    b3.style.transform = 'none';
+                });
+            });
+
+            // Elastic Magnetic Button (Rally Style Interaction)
+            const magneticBtn = document.getElementById('magnetic-btn');
+            if (magneticBtn) {
+                window.addEventListener('mousemove', (e) => {
+                    const rect = magneticBtn.getBoundingClientRect();
+                    const btnX = rect.left + rect.width / 2;
+                    const btnY = rect.top + rect.height / 2;
+                    const dist = Math.hypot(e.clientX - btnX, e.clientY - btnY);
+
+                    if (dist < 150) {
+                        const pullX = (e.clientX - btnX) * 0.25;
+                        const pullY = (e.clientY - btnY) * 0.25;
+                        magneticBtn.style.transform = `translate(${pullX}px, ${pullY}px) scale(1.05)`;
+                    } else {
+                        magneticBtn.style.transform = 'none';
+                    }
+                });
+            }
+
+            // Global Elastic Vector Grid Canvas Engine (Rally / Nithin / Jespr style)
+            const canvas = document.getElementById('vector-flow-canvas');
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            const gridLines = [];
+            const gridCols = 8;
+            const gridRows = 10;
+            let scrollYProgress = 0;
+            let currentTargetState = 0; // 0: Strategy (broad waves), 1: Marketing (aligned vertical), 2: Execution (structured grid), 3: Results (exponential metrics)
+
+            // Setup spring-driven intersection points
+            for (let r = 0; r <= gridRows; r++) {
+                gridLines.push([]);
+                for (let c = 0; c <= gridCols; c++) {
+                    gridLines[r].push({
+                        x: (width / gridCols) * c,
+                        y: (height / gridRows) * r,
+                        targetX: (width / gridCols) * c,
+                        targetY: (height / gridRows) * r,
+                        vx: 0,
+                        vy: 0,
+                        originalX: (width / gridCols) * c,
+                        originalY: (height / gridRows) * r
+                    });
+                }
+            }
+
+            // Adjust Target Coordinates Based on Scrolling Depth (Dynamic visual journey)
+            function updateGridDestinations(state) {
+                for (let r = 0; r <= gridRows; r++) {
+                    for (let c = 0; c <= gridCols; c++) {
+                        const pt = gridLines[r][c];
+                        const rRatio = r / gridRows;
+                        const cRatio = c / gridCols;
+
+                        if (state === 0) {
+                            // State 0: Strategy (Broad horizontal fluid waves)
+                            pt.targetX = pt.originalX;
+                            pt.targetY = pt.originalY + Math.sin(cRatio * Math.PI * 2) * 50;
+                        } 
+                        else if (state === 1) {
+                            // State 1: Marketing (Parallel vertical stream lanes)
+                            pt.targetX = pt.originalX + Math.sin(rRatio * Math.PI) * 40;
+                            pt.targetY = pt.originalY;
+                        } 
+                        else if (state === 2) {
+                            // State 2: Execution (Highly structured coordinate locking)
+                            pt.targetX = pt.originalX;
+                            pt.targetY = pt.originalY;
+                        } 
+                        else if (state === 3) {
+                            // State 3: Results (Exponential expansion curving upward)
+                            pt.targetX = pt.originalX;
+                            pt.targetY = pt.originalY - Math.pow(cRatio, 3) * (height * 0.35);
+                        }
+                    }
+                }
+            }
+
+            // Mouse coordinates tracking
+            let mouseX = -1000;
+            let mouseY = -1000;
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            window.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+
+            // Performant Animation Loop
+            function animateGrid() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Spring physics update on nodes
+                for (let r = 0; r <= gridRows; r++) {
+                    for (let c = 0; c <= gridCols; c++) {
+                        const pt = gridLines[r][c];
+                        const dx = pt.targetX - pt.x;
+                        const dy = pt.targetY - pt.y;
+
+                        // Spring coefficient
+                        pt.vx += dx * 0.04;
+                        pt.vy += dy * 0.04;
+                        pt.vx *= 0.8;
+                        pt.vy *= 0.8;
+
+                        pt.x += pt.vx;
+                        pt.y += pt.vy;
+
+                        // Cursor proximity elasticity deflection (Rally Interactive style)
+                        const mdx = mouseX - pt.x;
+                        const mdy = mouseY - pt.y;
+                        const mDist = Math.hypot(mdx, mdy);
+                        if (mDist < 180) {
+                            const force = (180 - mDist) / 180;
+                            pt.x -= mdx * force * 0.25;
+                            pt.y -= mdy * force * 0.25;
+                        }
+                    }
+                }
+
+                // Render lines with high transparency (No text obstruction)
+                ctx.beginPath();
+                ctx.strokeStyle = 'rgba(43, 46, 140, 0.035)'; // Very safe low opacity
+                ctx.lineWidth = 1;
+
+                // Draw Horizontal grid strings
+                for (let r = 0; r <= gridRows; r++) {
+                    ctx.moveTo(gridLines[r][0].x, gridLines[r][0].y);
+                    for (let c = 1; c <= gridCols; c++) {
+                        // Smooth curves using bezier anchors
+                        const cpX = (gridLines[r][c - 1].x + gridLines[r][c].x) / 2;
+                        const cpY = (gridLines[r][c - 1].y + gridLines[r][c].y) / 2;
+                        ctx.quadraticCurveTo(gridLines[r][c - 1].x, gridLines[r][c - 1].y, cpX, cpY);
+                    }
+                    ctx.lineTo(gridLines[r][gridCols].x, gridLines[r][gridCols].y);
+                }
+
+                // Draw Vertical grid strings
+                for (let c = 0; c <= gridCols; c++) {
+                    ctx.moveTo(gridLines[0][c].x, gridLines[0][c].y);
+                    for (let r = 1; r <= gridRows; r++) {
+                        const cpX = (gridLines[r - 1][c].x + gridLines[r][c].x) / 2;
+                        const cpY = (gridLines[r - 1][c].y + gridLines[r][c].y) / 2;
+                        ctx.quadraticCurveTo(gridLines[r - 1][c].x, gridLines[r - 1][c].y, cpX, cpY);
+                    }
+                    ctx.lineTo(gridLines[gridRows][c].x, gridLines[gridRows][c].y);
+                }
+                ctx.stroke();
+
+                requestAnimationFrame(animateGrid);
+            }
+
+            // Scroll events change structural motion mapping
+            window.addEventListener('scroll', () => {
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                scrollYProgress = window.scrollY / maxScroll;
+
+                let targetState = 0;
+                if (scrollYProgress > 0.15) targetState = 1;
+                if (scrollYProgress > 0.45) targetState = 2;
+                if (scrollYProgress > 0.72) targetState = 3;
+
+                if (targetState !== currentTargetState) {
+                    currentTargetState = targetState;
+                    updateGridDestinations(currentTargetState);
+                }
+            });
+
+            // Resize coordinates dynamically
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+
+                for (let r = 0; r <= gridRows; r++) {
+                    for (let c = 0; c <= gridCols; c++) {
+                        const pt = gridLines[r][c];
+                        pt.originalX = (width / gridCols) * c;
+                        pt.originalY = (height / gridRows) * r;
+                    }
+                }
+                updateGridDestinations(currentTargetState);
+            });
+
+            // Initialize Grid
+            updateGridDestinations(0);
+            animateGrid();
+
+            // Clean Section Reveal Observer
+            const sections = document.querySelectorAll('.reveal-section');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.08,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            sections.forEach(s => observer.observe(s));
+        });
+    </script>
+</body>
+</html>
