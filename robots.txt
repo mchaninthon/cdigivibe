@@ -2,5 +2,22 @@
 User-agent: *
 Allow: /
 
-# Direct search engine crawlers to your XML Roadmap
+# Explicitly allow AI search crawlers to index our structural metadata
+User-agent: GPTBot
+Allow: /llms.txt
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /llms.txt
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /llms.txt
+Allow: /
+
+User-agent: applebot-extended
+Allow: /llms.txt
+Allow: /
+
+# Direct all crawlers to sitemap
 Sitemap: https://www.cdigivibe.com/sitemap.xml
